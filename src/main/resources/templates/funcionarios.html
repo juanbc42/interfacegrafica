@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://thymeleaf.org">
+    <head>
+        <title>Listar Funcionarios</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+        <link rel="stylesheet" href="./asset/main.css"/>
+        <script src="//use.edgefonts.net/montserrat.js"></script>
+    </head>
+    <body>
+    <header>
+			<nav>
+                            <button class="btn"><a href="index.html" class="btn">Inicio</a></button>
+                            <button class="btn"><a href="novocliente" class="btn">Novo Cliente</a></button>
+                            <button class="btn"><a href="clientes" class="btn">Listar Cliente</a></button>
+                            <button class="btn"><a href="novofuncionario" class="btn">Novo Funcionário</a></button> 	
+                            <button class="btn"><a href="funcionarios" class="btn">Listar Funcionarios</a></button> 
+			</nav>
+    </header>
+        <h2>Estas são as informações armazenadas de Funcionario</h2>
+    <div style="overflow-x:auto;">
+    <table>
+            <tr>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Data Nascimento</th>
+                <th>Endereço</th>
+                <th>Telefone</th>
+                <th>RG</th>
+                <th>Data Admissao</th>
+                <th>Cargo</th>
+            </tr>
+            <tr th:each="funcionario:${funcionarios}">
+                <td th:text="${funcionario.f_nome}"></td>
+                <td th:text="${funcionario.f_cpf}"></td>
+                <td th:text="${funcionario.f_dataNasc}"></td>
+                <td th:text="${funcionario.f_endereco}"></td>                
+                <td th:text="${funcionario.f_telefone}"></td>
+                <td th:text="${funcionario.f_rg}"></td>
+                <td th:text="${funcionario.f_dataAd}"></td>
+                <td th:text="${funcionario.f_cargo}"></td>
+            </tr>
+            
+        </table>
+       </div>
+    </body>
+</html>

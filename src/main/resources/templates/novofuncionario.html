@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Novo Cliente</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="./asset/main.css"/>
+        <script src="//use.edgefonts.net/montserrat.js"></script>
+        
+    </head>
+    <body>
+    
+    <header>
+			<nav>
+                            <button class="btn"><a href="index.html" class="btn">Inicio</a></button>
+                            <button class="btn"><a href="novocliente" class="btn">Novo Cliente</a></button>
+                            <button class="btn"><a href="clientes" class="btn">Listar Cliente</a></button>
+                            <button class="btn"><a href="novofuncionario" class="btn">Novo Funcionário</a></button> 	
+                            <button class="btn"><a href="funcionarios" class="btn">Listar Funcionarios</a></button> 
+			</nav> 
+   </header>
+        <h2>Insira as informações para continuar</h2>
+    <div class="container">
+            <form action="#" th:action="@{/salvarFuncionario}" th:object="${funcionario}" method="POST">
+                    <!-- This is the start of a row -->
+                    <div class="row"> 
+                            <div class="col1">
+                                   <label for ="f_nome"> Nome </label>
+                            </div>
+                            <div class="col2">
+                               <input type="text" name="f_nome" th:field="*{f_nome}"  placeholder="Insira seu Nome aqui"/>
+                            </div> 
+                    </div>
+                    <!-- This is the end of a row -->
+                    <div class="row"> 
+                            <div class="col1">
+                                    <label for ="f_cpf"> CPF </label>
+                            </div>
+                            <div class="col2">
+                                    <input type="text" name="f_cpf" th:field="*{f_cpf}" id="f_cpf" placeholder="Insira seu CPF "/>
+                            </div>
+                    </div>
+                    
+                    <div class="row"> 
+                            <div class="col1">
+                                    <label for ="f_dataNasc"> Data Nascimento </label>
+                            </div>
+                            <div class="col2">
+                                    <input type="text" name="f_dataNasc" th:field="*{f_dataNasc}" placeholder="Insira a data de Nascimento "/>
+                            </div>
+                    </div>       
+                    
+                    <div class="row"> 
+                            <div class="col1">
+                                    <label for ="f_endereco"> Endereco </label>
+                            </div>
+                            <div class="col2">
+                                    <input type="text" name="f_endereco" th:field="*{f_endereco}"  placeholder="Insira o endereco "/>
+                            </div>
+                    </div>  
+                    <div class="row"> 
+                            <div class="col1">
+                                    <label for ="f_telefone"> Telefone </label>
+                            </div>
+                            <div class="col2">
+                                    <input type="text" name="f_telefone" th:field="*{f_telefone}"  placeholder="Insira a data de Nascimento "/>
+                            </div>
+                    </div>  
+                    <div class="row"> 
+                            <div class="col1">
+                                    <label for ="f_rg"> RG </label>
+                            </div>
+                            <div class="col2">
+                                    <input type="text" name="f_rg" th:field="*{f_rg}" placeholder="Insira seu RG "/>
+                            </div>
+                    </div>
+                    <div class="row"> 
+                            <div class="col1">
+                                    <label for ="f_cargo"> Cargo </label>
+                            </div>
+                            <div class="col2">
+                                    
+                                    <select th:field="*{f_cargo}">
+                                        <option value="">Selecione o Cargo</option>
+                                        <option th:each="cargo: ${cargos}" th:value="${cargo}" th:text="${cargo}"></option>
+                                    </select>
+                            </div>
+                    </div>
+                    <div class="row"> 
+                            <div class="col1">
+                                    <label for ="f_dataAd"> Data Admissao </label>
+                            </div>
+                            <div class="col2">
+                                    <input type="text" name="f_dataAd" th:field="*{f_dataAd}" placeholder="Insira a data de Admissao "/>
+                            </div>
+                    </div>
+                    
+                    
+                    <button><a href="index.html"> Voltar </a></button>
+                    <button type="submit"> Salvar</button>
+            </form>
+
+    </div>
+    </body>
+</html>

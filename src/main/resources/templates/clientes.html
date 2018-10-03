@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://thymeleaf.org">
+    <head>
+        <title>Listar Clientes</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+        <link rel="stylesheet" href="./asset/main.css"/>
+        <script src="//use.edgefonts.net/montserrat.js"></script>
+    </head>
+    <body>
+    <header>
+			<nav>
+                            <button class="btn"><a href="index.html" class="btn">Inicio</a></button>
+                            <button class="btn"><a href="novocliente" class="btn">Novo Cliente</a></button>
+                            <button class="btn"><a href="clientes" class="btn">Listar Cliente</a></button>
+                            <button class="btn"><a href="novofuncionario" class="btn">Novo Funcionário</a></button> 	
+                            <button class="btn"><a href="funcionarios" class="btn">Listar Funcionarios</a></button> 
+			</nav>
+    </header>
+        <h2>Estas são as informações armazenadas</h2>
+    <div style="overflow-x:auto;">
+    <table>
+            <tr>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>TipoLogradouro</th>
+                <th>Logradouro</th>
+                <th>Numero</th>
+                <th>Telefone Residencial</th>
+                <th>Telefone Comercial</th>
+                <th>Telefone Celular</th>
+                <th>RG</th>
+                <th>Profissao</th>
+            </tr>
+            <tr th:each="cliente:${clientes}">
+                <td th:text="${cliente.nome}"></td>
+                <td th:text="${cliente.cpf}"></td>
+                <td th:text="${cliente.TipoLogradouro}"></td>
+                <td th:text="${cliente.Logradouro}"></td>
+                <td th:text="${cliente.NumeroLogradouro}"></td>
+                <td th:text="${cliente.TelefoneResidencial}"></td>
+                <td th:text="${cliente.TelefoneComercial}"></td>
+                <td th:text="${cliente.TelefoneCelular}"></td>
+                <td th:text="${cliente.rg}"></td>
+                <td th:text="${cliente.Profissao}"></td>
+            </tr>
+            
+        </table>
+       </div>
+    </body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Novo Cliente</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="./asset/main.css"/>
+        <script src="//use.edgefonts.net/montserrat.js"></script>
+        
+    </head>
+    <body>
+    
+    <header>
+			<nav>
+                            <button class="btn"><a href="index.html" class="btn">Inicio</a></button>
+                            <button class="btn"><a href="novocliente" class="btn">Novo Cliente</a></button>
+                            <button class="btn"><a href="clientes" class="btn">Listar Cliente</a></button>
+                            <button class="btn"><a href="novofuncionario" class="btn">Novo Funcionário</a></button> 	
+                            <button class="btn"><a href="funcionarios" class="btn">Listar Funcionarios</a></button>   
+		</nav>
+    </header>
+        <h2>Insira as informações para continuar</h2>
+    <div class="container">
+            <form action="#" th:action="@{/salvarCliente}" th:object="${cliente}" method="post">
+                    <!-- This is the start of a row -->
+                    <div class="row"> 
+                            <div class="col1">
+                                    <label for ="nome"> Nome</label>
+                            </div>
+                            <div class="col2">
+                                    <input type="text" name="nome" th:field="*{nome}" placeholder="Insira seu Nome aqui"/>
+                            </div>
+                    </div>
+                    <!-- This is the end of a row -->
+                    <div class="row"> 
+                            <div class="col1">
+                                    <label for ="tipoLogradouro"> Tipo de Logradouro</label>
+                            </div>
+                            <div class="col2">
+                                    <select th:field="*{tipoLogradouro}">
+                                        <option value="">Selecione o tipo</option>
+                                        <option value="Rua">Rua</option>
+                                        <option value="Avenida">Avenida</option>
+                                        <option value="Alameda">Alameda</option>
+                                    </select>
+                            </div>
+                    </div>
+                    <div class="row"> 
+                            <div class="col1">
+                                    <label for ="logradouro"> Logradouro</label>
+                            </div>
+                            <div class="col2">
+                                    <input type="text" name="logradouro" th:field="*{logradouro}" placeholder="Insira seu Logradouro"/>
+                            </div>
+                    </div>
+                    <div class="row"> 
+                            <div class="col1">
+                                    <label for ="numeroLogradouro"> Numero Logradouro</label>
+                            </div>
+                            <div class="col2">
+                                    <input type="number" name="numeroLogradouro" th:field="*{numeroLogradouro}" placeholder="Insira o número de seu Logradouro"/>
+                            </div>
+                    </div>
+                    <div class="row"> 
+                            <div class="col1">
+                                    <label for ="telefoneResidencial"> Telefone Residencial</label>
+                            </div>
+                            <div class="col2">
+                                    <input type="text" name="telefoneResidencial" th:field="*{telefoneResidencial}" placeholder="Insira seu Telefone Residencial"/>
+                            </div>
+                    </div>
+                    <div class="row"> 
+                            <div class="col1">
+                                    <label for ="telefoneComercial"> Telefone Comercial </label>
+                            </div>
+                            <div class="col2">
+                                    <input type="text" name="telefoneComercial" th:field="*{telefoneComercial}" placeholder="Insira seu Telefone Comercial aqui"/>
+                            </div>
+                    </div>
+                    <div class="row"> 
+                            <div class="col1">
+                                    <label for ="telefoneCelular"> Telefone Celular </label>
+                            </div>
+                            <div class="col2">
+                                    <input type="text" name="telefoneCelular" th:field="*{telefoneCelular}" placeholder="Insira seu Celular aqui"/>
+                            </div>
+                    </div>
+                    <div class="row"> 
+                            <div class="col1">
+                                    <label for ="cpf"> CPF </label>
+                            </div>
+                            <div class="col2">
+                                    <input type="text" name="cpf" th:field="*{cpf}" placeholder="Insira seu CPF "/>
+                            </div>
+                    </div>
+                    <div class="row"> 
+                            <div class="col1">
+                                    <label for ="rg"> RG </label>
+                            </div>
+                            <div class="col2">
+                                    <input type="text" name="rg" th:field="*{rg}" placeholder="Insira seu RG "/>
+                            </div>
+                    </div>
+                    <div class="row"> 
+                            <div class="col1">
+                                    <label for ="profissao"> Profissão </label>
+                            </div>
+                            <div class="col2">
+                                    <!-- <input type="text" name="profissao" th:field="*{profissao}" placeholder="Insira sua Profissão "/> -->
+                                    <select th:field="*{profissao}">
+                                        <option value="">Selecione a Profissao</option>
+                                        <option th:each="profissao: ${profissoes}" th:value="${profissao}" th:text="${profissao}"></option>
+                                    </select>
+                            </div>
+                    </div>
+                    
+                    <button><a href="index.html"> Voltar </a></button>
+                    <button type="submit"> Salvar</button>
+            </form>
+
+    </div>
+    </body>
+</html>
